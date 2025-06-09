@@ -10,10 +10,10 @@ import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Component(service=PracticeEventHandler.class,
+@Component(service=EventHandler.class,
             immediate = true,
             property = {
-                EventConstants.EVENT_TOPIC + " = org/apache/sling/api/resource/Resource/*"
+                EventConstants.EVENT_TOPIC + "=org/apache/sling/api/resource/Resource/*"
             })
 public class PracticeEventHandler implements EventHandler {
 
@@ -24,5 +24,6 @@ public class PracticeEventHandler implements EventHandler {
        
              logger.info("Event Topic = {}, Path = {}",event.getTopic(),
              event.getProperty(SlingConstants.PROPERTY_PATH));
+             logger.info("data is coming from handler");
     }
 }
